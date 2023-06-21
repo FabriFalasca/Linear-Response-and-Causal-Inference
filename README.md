@@ -1,5 +1,8 @@
 # Causal inference in spatiotemporal climate fields through linear response theory
 
+Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
+Contact: fabri.falasca@nyu.edu
+
 We propose a data-driven method to 
 
 (a) Coarse-grain spatiotemporal climate fields into a set of regional modes of variability. The dimensionality reduction step is based on community detection. We further contribute to community detection in climate data by proposing a simple heuristics to identify local communities/patterns in longitude-latitude space. The communities are found using the Infomap algorithm based on the Map Equation. See for example: https://www.mapequation.org/publications.html#Rosvall-Axelsson-Bergstrom-2009-Map-equation
