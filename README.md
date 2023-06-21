@@ -1,6 +1,7 @@
 # Causal inference in spatiotemporal climate fields through linear response theory
 
 Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
+
 Contact: fabri.falasca@nyu.edu
 
 We propose a data-driven method to 
