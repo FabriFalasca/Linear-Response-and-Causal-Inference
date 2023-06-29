@@ -2,6 +2,8 @@
 
 Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
 
+Preprint: https://arxiv.org/abs/2306.14433
+
 Contact: fabri.falasca@nyu.edu
 
 We propose a data-driven method to 
