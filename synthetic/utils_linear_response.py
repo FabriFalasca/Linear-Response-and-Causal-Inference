@@ -285,9 +285,7 @@ def null_responses(x_t,phi,tau_max,sigmas,B,standardized):
 
     return null_responses
     
-########## Analytical solution of responses T(tau) of orbit x_t
-
-# Written by Dr. Pashansky
+########## Analytical solution of responses R(tau) of orbit x_t
 
 # Inputs:
 
@@ -304,12 +302,12 @@ def null_responses(x_t,phi,tau_max,sigmas,B,standardized):
 
 # tau: maximum lag to compute the response
 
-def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,standardized='yes', q=[0.001,0.999]):
+def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,s,standardized='yes'):
+    
     N, T = x_t.shape
 
-    print('Memory demands: ', 2*N**2*tau*4/1024**3, 'GB')
-    q1 = np.zeros((tau,N,N), dtype='float32') # The first quantile
-    q2 = np.zeros((tau,N,N), dtype='float32') # The second quantile
+    s_minus = np.zeros((tau,N,N), dtype='float32') # The first quantile
+    s_plus = np.zeros((tau,N,N), dtype='float32') # The second quantile
 
     variance = sigmas**2
 
@@ -321,7 +319,7 @@ def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,standardized='ye
     v_i   = np.repeat(variance[:,None],N,axis=1)
     v_j   = np.repeat(variance[None,:],N,axis=0)
     vi_vj = v_i / v_j
-    
+
     mask = phi_i!=phi_j
     maskn = np.logical_not(mask)
 
@@ -340,8 +338,8 @@ def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,standardized='ye
         phi_j_t = np.repeat(phi_t[None,:],N,axis=0)
         phi_i_2t = np.repeat((phi_t**2)[:,None],N,axis=1)
 
-        q0 = np.diag(phi_t)
-
+        expected_value = np.diag(phi_t)
+        
         var = (phi_i_2t+1) * factor_1
         var -= phi_i_t * (phi_j_t+phi_i_t*Phi) * factor_2
         var -= phi_i_t * (phi_j_t-phi_i_t) * factor_3
@@ -350,10 +348,11 @@ def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,standardized='ye
         var = np.maximum(var, 0)
 
         phi_t *= phi
-
-        q1[t] = q0 + scipy.stats.norm.ppf(q[0]) * np.sqrt(var)
-        q2[t] = q0 + scipy.stats.norm.ppf(q[1]) * np.sqrt(var)
+        
+        s_minus[t] = expected_value - s*np.sqrt(var)
+        s_plus[t] = expected_value + s*np.sqrt(var)
+        
 
     print('',end='\n')
-        
-    return q1, q2
+
+    return s_minus, s_plus
