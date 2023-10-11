@@ -1,4 +1,4 @@
-# Causal inference in spatiotemporal climate fields through linear response theory
+# A framework for coarse-graining and causal inference in climate fields
 
 Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
 
