@@ -30,10 +30,7 @@ Main packages needed here are
 In the linear_response.ipynb notebook we provide examples and codes on how to infer causality between time series using the FDR formalism. Moreover, these codes are general and can be used on other sets of time series.
 
 ### Global_SST
-All codes to (a) dimensionality reduction and (b) causal inference of global sea surface temperature data. All results of the paper are reported in the notebook "infomap_community_Global_q095_original_monthly.ipynb".
-
-### Tropical_Pacific_SST
-All codes to (a) dimensionality reduction and (b) causal inference of sea surface temperature data in the tropical Pacific. All results of the paper are reported in the notebook "infomap_community_Pacific_q095_original_weekly.ipynb".
+All codes to (a) dimensionality reduction and (b) causal inference of global sea surface temperature data. All results of the paper are reported in the notebook "main.ipynb".
 
 ### Preprocessing
 Here we give an example of the main preprocessing. To preprocess the data we use the CDO package https://code.mpimet.mpg.de/projects/cdo 
