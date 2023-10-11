@@ -35,6 +35,3 @@ All codes to (a) dimensionality reduction and (b) causal inference of global sea
 ### Preprocessing
 Here we give an example of the main preprocessing. To preprocess the data we use the CDO package https://code.mpimet.mpg.de/projects/cdo 
 The preprocessing file is in bash. To evaluate just type: sh preprocess.sh
-
-### testing_responses
-This is Pavel trying to write faster and faster algorithms for this problem. He succeeded, making this code as fast as the Спутник 1 before leaving us for Space Exploration.
