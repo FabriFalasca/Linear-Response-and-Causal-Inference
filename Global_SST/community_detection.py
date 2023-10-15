@@ -320,7 +320,7 @@ def community_detection(path, climate_variable, lon_variable, lat_variable, rand
         # Extract the mode
         extract_mode = data*weighted_communities[i]
         # Compute the signal as the mean time series (nans are not considered)
-        average_signal = np.nanmean(extract_mode, axis=(1, 2))
+        average_signal = np.nansum(extract_mode, axis=(1, 2))/np.nansum(weighted_communities[i])
         cumulative_signal = np.nansum(extract_mode, axis=(1, 2))
         # Store the result
         average_signals.append(average_signal)
@@ -331,56 +331,3 @@ def community_detection(path, climate_variable, lon_variable, lat_variable, rand
 
     return community_map, single_communities, average_signals, cumulative_signals
 
-# Function to remove small small communities
-
-
-'''
-Communities with less than N nodes can be considered as noise and removed
-'''
-
-def larger_communities(x, N, x_t):
-
-    # input:
-    # - x is an array of format nlat,lon)
-    # - -  where n is the number of communities
-    # - - in each x[i] we have "1"s where we have communities
-    # - N: minimum size of communities accepted
-    # - x_t: signals
-
-    # output:
-    # - new communties
-    # - new signals
-    # - new community_map
-
-    # how many communities?
-    n = len(x)
-
-    # check if you have more than N points. If less than N
-    # points we do not save these communities
-
-    # new communities
-    new_x = []
-    # new signals
-    new_x_t = []
-
-    for i in range(n):
-        if np.nansum(x[i]) > N:
-            new_x.append(x[i])
-            new_x_t.append(x_t[i])
-        else:
-            continue
-
-    new_x = np.array(new_x)
-    new_x_t = np.array(new_x_t)
-
-    # new community map 
-    new_x_map = []
-
-    for i in range(len(new_x)):
-        new_x_map.append(new_x[i]*(i+1))
-
-    new_x_map = np.array(new_x_map)
-    new_x_map = np.nansum(new_x_map, axis=0)
-    new_x_map[new_x_map == 0] = np.nan
-
-    return new_x, new_x_t, new_x_map
