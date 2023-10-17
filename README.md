@@ -1,4 +1,4 @@
-# A framework for coarse-graining and causal inference in climate fields
+# A data-driven framework for dimensionality reduction and causal inference in climate fields
 
 Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
 
