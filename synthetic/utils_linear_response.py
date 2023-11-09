@@ -356,3 +356,48 @@ def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,s,standardized='
     print('',end='\n')
 
     return s_minus, s_plus
+
+
+# Function to define node_strength with statistical significance
+# (There are better ways to write this.)
+
+def node_strength_significance(response_matrix,conf_bounds_plus,conf_bounds_minus):
+    
+    # Inputs
+    # - response_matrix
+    # - significance_right_tail: for example the 99th percentile of the ensemble of null models
+    # - significance_left_tail: for example the 1st percentile of the ensemble of null models
+    
+    # Outputs:
+    # - strengths_j_k: strength of the connection j -> k
+    # If the original response matrix is n by n, strengths_j_k will be n x (n - 1)
+    # as it will not consider self links
+    
+    time = np.shape(response_matrix)[0]
+    # number of rows = number of columns = n
+    n = np.shape(response_matrix)[1]
+    
+    # response_matrix_significant: assign zero if not significant
+    response_matrix_significant = response_matrix.copy()
+    
+    # if you are not significant we change you to zero
+    indices = (response_matrix < conf_bounds_plus) & (response_matrix > conf_bounds_minus)
+    response_matrix_significant[indices] = 0
+    
+    # Strength of link j -> k
+    strengths_j_k = np.zeros([n,n])
+    
+    # Response j -> k in absolute value
+    abs_response_j_k = np.abs(response_matrix_significant[1:])
+    # Compute strength of j -> k
+    strengths_j_k = np.transpose(np.sum(abs_response_j_k,axis = 0))
+    
+    # When computing strengths we remove the j -> j connection
+    # remove diagonal
+    strengths_j_k_off_diagonal = strengths_j_k[~np.eye(strengths_j_k.shape[0],dtype=bool)].reshape(strengths_j_k.shape[0],-1)
+    
+    # Strength of node j
+    strengths_j = np.sum(strengths_j_k_off_diagonal,axis = 1)
+    
+    return strengths_j_k, strengths_j
+
