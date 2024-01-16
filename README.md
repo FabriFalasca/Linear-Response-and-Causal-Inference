@@ -17,8 +17,8 @@ We further contribute to the framework by proposing an analytical null model for
 ### Packages needed
 Main packages needed here are 
 
-- "Infomap". Download Infomap version 2.2.0 See this page for installation: https://www.mapequation.org/infomap/
-- NetworkX. Download NetworkX version 2.8 See https://networkx.org/
+- "Infomap". See this page for installation: https://www.mapequation.org/infomap/ ; Download Infomap version 2.2.0
+- NetworkX. See https://networkx.org/ ; Download NetworkX version 2.8
 - netCDF4. See https://unidata.github.io/netcdf4-python/
 
 ##### Note: In the Synthetic folder you find a notebook with synthetic tests. This allows to understand and test the causal framework adopted here. For this none of the packages listed above are needed.
