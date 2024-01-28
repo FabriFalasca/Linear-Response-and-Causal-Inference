@@ -306,8 +306,8 @@ def compute_quantile_analytical_tau_discrete(x_t,phi,sigmas,tau,s,standardized='
     
     N, T = x_t.shape
 
-    s_minus = np.zeros((tau,N,N), dtype='float32') # The first quantile
-    s_plus = np.zeros((tau,N,N), dtype='float32') # The second quantile
+    s_minus = np.zeros((tau,N,N), dtype='float32') # E[R] - s * sigma[R]
+    s_plus = np.zeros((tau,N,N), dtype='float32') # E[R] + s * sigma[R]
 
     variance = sigmas**2
 
