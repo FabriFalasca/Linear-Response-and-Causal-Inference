@@ -3,6 +3,7 @@
 Fabrizio Falasca, Pavel Perezhogin, Laure Zanna
 
 Published version: https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.044202
+
 (The published verson is behind a paywall. Here a preprint version in case: https://arxiv.org/abs/2306.14433)
 
 Contact: fabri.falasca@nyu.edu
