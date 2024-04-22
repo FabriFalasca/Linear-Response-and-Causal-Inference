@@ -28,10 +28,12 @@ Main packages needed here are
 ## Folders
 
 
-### Synthetic
+### Synthetic. For causal inference this is all you need.
 In the main.ipynb notebook we show how to infer causality between a set of time series using the FDR formalism. In the notebook "explaining.ipynb" we provide step-by-steps examples explaining the formalism. 
 
 - These codes are general and can be used on other sets of time series. If you already have a set of time series and want to study their causal relationships, the code main.ipynb in this folder is all you need.
+
+- 
 
 ### Global_SST
 All codes to (a) dimensionality reduction and (b) causal inference of global sea surface temperature data. All results of the paper are reported in the notebook "main.ipynb".
