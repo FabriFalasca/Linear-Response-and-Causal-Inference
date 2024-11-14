@@ -16,6 +16,14 @@ We propose a data-driven method to
 Causality is inferred through the fluctuation-dissipation theory as first shown in here: https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.043436 
 We further contribute to the framework by proposing an analytical null model for the fluctuation-dissipation relation (FDR). 
 
+### A few qualitative consideration on the application of the Fluctuation-Dissipation Theorem for climate data
+
+See also Appendix A in this paper https://arxiv.org/pdf/2408.12585
+
+(a) Coarse-graining is a fundamental step in applications of FDT in Climate and not just a mere technical detail (see for example Colangeli et al. (2012) https://iopscience.iop.org/article/10.1088/1742-5468/2012/04/L04002). Our paper offers 1 way to coarse-grain a spatiotemporal field, but there are many others, going back to more traditional ones like EOFs. An example of successful application of FDT using EOFs can be found in this paper by Gritsun et al. https://doi.org/10.1175/JAS3943.1 
+
+(b) The framework proposed here tackles the problem of causal inference, i.e. identifying causal-effect mechanisms by quantifying how perturbations travel along a system. Many other tools focus instead on the problem of causal discovery which aims instead in reconstructing a causal graph from observations. The FDT framework could in principle be used for causal discovery by considering as connections x_j -> x_k the first non-zero response R_{k,j}(t).
+
 ### Packages needed
 Main packages needed here are 
 
