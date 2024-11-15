@@ -16,6 +16,8 @@ We propose a data-driven method to
 Causality is inferred through the fluctuation-dissipation theory as first shown in here: https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.043436 
 We further contribute to the framework by proposing an analytical null model for the fluctuation-dissipation relation (FDR). 
 
+We note that the implementation proposed here has not been optimized: it works just fine in low-dimensional spaces. For very high-dimensional systems there may be other ways to implement a faster version of the method.
+
 ### A few qualitative consideration on the application of the Fluctuation-Dissipation Theorem for climate data
 
 (a) See Appendix A of this paper https://arxiv.org/pdf/2408.12585 for some qualitative considerations on the application of FDT in chaotic systems
