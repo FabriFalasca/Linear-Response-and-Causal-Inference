@@ -24,7 +24,7 @@ We further contribute to the framework by proposing an analytical null model for
 
 (c) The framework proposed here tackles the problem of causal inference, i.e. identifying causal-effect mechanisms by quantifying how perturbations travel along a system. Many other tools focus in the literature instead on the problem of causal discovery aiming instead in reconstructing a causal graph from observations.
 
-Finally, a few mathematical guidance on the application of FDT in climate data, together with tests on simple nonlinear systems can be found in Majda et al (2010) https://journals.ametsoc.org/view/journals/atsc/67/4/2009jas3264.1.xml
+Finally, a few mathematical guidances on the application of FDT in climate data, together with tests on simple nonlinear systems can be found in Majda et al (2010) https://journals.ametsoc.org/view/journals/atsc/67/4/2009jas3264.1.xml
 
 ### Packages needed
 Main packages needed here are 
